@@ -1,0 +1,528 @@
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-regular);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+h1 {
+    margin: 0 0 var(--space-3);
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 210px;
+    min-height: 100vh;
+    flex-shrink: 0;
+    background: var(--color-sidebar);
+    color: var(--color-text-inverse);
+    padding: 28px 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding-left: 8px;
+    margin-bottom: 22px;
+}
+
+.logo span {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.logo h2 {
+    margin: 2px 0 0;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-title {
+    color: var(--color-text-muted);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 0 5px;
+}
+
+.nav-item {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    border-radius: var(--radius-sm);
+
+    color: var(--color-text-inverse);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.nav-item span {
+    font-size: 15px;
+}
+
+.nav-item.active {
+    background: #3B3933;
+}
+
+.settings {
+    margin-top: 22px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-sidebar);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile p {
+    margin: 0 0 2px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.profile span {
+    color: var(--color-text-muted);
+    font-size: 8px;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    flex: 1;
+    padding: 28px;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.page-header h1 {
+    margin: 0 0 12px;
+}
+
+.page-header p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.period-button,
+.notification-button {
+    border: 1px solid #E7E1D6;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+.period-button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.notification-button {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 18px;
+}
+
+/* =========================
+   ACCOUNTS SECTION
+========================= */
+
+.accounts-section {
+    margin-top: 36px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    margin: 0 0 6px;
+    font-size: var(--font-size-xl);
+}
+
+.section-header p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.add-account-button {
+    padding: 10px 16px;
+    border: 1px solid #E7E1D6;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+}
+
+.accounts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.account-card {
+    padding: 22px;
+    min-height: 170px;
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    border: 1px solid #EAE4D9;
+}
+
+.account-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.account-bank {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
+}
+
+.account-icon {
+    font-size: 20px;
+}
+
+.account-type {
+    margin: 0 0 8px;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.account-card h3 {
+    margin: 0 0 10px;
+    font-size: var(--font-size-xl);
+}
+
+.account-number {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+.account-card.credit {
+    background: #F1EAE0;
+}
+
+.account-card.personal {
+    background: #E9E5F0;
+}
+
+/* =========================
+   TRANSACTIONS
+========================= */
+
+.transactions-section {
+    margin-top: 36px;
+}
+
+.transactions-list {
+    background: var(--color-surface);
+    border: 1px solid #EAE4D9;
+    border-radius: var(--radius-lg);
+    padding: 8px 22px;
+}
+
+.transaction-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid #EAE4D9;
+}
+
+.transaction-row:last-child {
+    border-bottom: none;
+}
+
+.transaction-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 220px;
+}
+
+.transaction-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.transaction-icon.food {
+    background: #F5E7C7;
+}
+
+.transaction-icon.salary {
+    background: #DDE8CE;
+}
+
+.transaction-icon.taxi {
+    background: #E1E8F2;
+}
+
+.transaction-info h3 {
+    margin: 0 0 5px;
+    font-size: var(--font-size-md);
+}
+
+.transaction-info p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+}
+
+.transaction-account {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.transaction-row strong {
+    font-size: var(--font-size-md);
+    white-space: nowrap;
+}
+
+.expense {
+    color: #C46E78;
+}
+
+.income-amount {
+    color: #6F9561;
+}
+
+/* =========================
+   QUICK EXPENSE FORM
+========================= */
+
+.quick-expense {
+    margin-bottom: 32px;
+    padding: 24px;
+    background: var(--color-surface);
+    border: 1px solid #EAE4D9;
+    border-radius: var(--radius-lg);
+}
+
+.expense-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: end;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #E7E1D6;
+    border-radius: var(--radius-md);
+    background: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+}
+
+.submit-expense {
+    grid-column: 1 / -1;
+    height: 44px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--color-sidebar);
+    color: white;
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+}
+
+.submit-expense:hover {
+    opacity: 0.9;
+}
+
+
+/* =========================
+   FINANCIAL SUMMARY
+========================= */
+
+.summary-section {
+    margin-top: var(--space-9);
+}
+
+.summary-section .section-header {
+    margin-bottom: var(--space-5);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-4);
+}
+
+.summary-card {
+    min-width: 0;
+    min-height: 160px;
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+}
+
+.summary-card p {
+    margin: 0 0 var(--space-5);
+    font-size: var(--font-size-md);
+}
+
+.summary-card h2 {
+    margin: 0 0 var(--space-4);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.summary-card span {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.balance-card {
+    background: var(--color-balance);
+}
+
+.income-card {
+    background: var(--color-income);
+}
+
+.expenses-card {
+    background: var(--color-expenses);
+}
+
+.savings-card {
+    background: var(--color-savings);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .accounts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .summary-grid,
+    .accounts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+    .expense-form {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        gap: 16px;
+        flex-direction: column;
+    }
+}
+

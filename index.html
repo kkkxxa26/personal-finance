@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance</title>
+
+    <link rel="stylesheet" href="token.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<div class="app">
+
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>ЛИЧНЫЕ</span>
+            <h2>ФИНАНСЫ</h2>
+        </div>
+
+        <nav class="navigation">
+            <p class="nav-title">ОБЩЕЕ</p>
+
+            <a href="#" class="nav-item active">
+                <span>▦</span>
+                Обзор
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>↔</span>
+                Операции
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▣</span>
+                Счета
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>◎</span>
+                Накопления
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>⇄</span>
+                Долги
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▥</span>
+                Аналитика
+            </a>
+        </nav>
+
+        <nav class="navigation settings">
+            <p class="nav-title">НАСТРОЙКИ</p>
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Настройки
+            </a>
+        </nav>
+
+        <div class="profile">
+            <div class="avatar">А</div>
+            <div>
+                <p>Мой профиль</p>
+                <span>Личный кабинет</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- Основная область -->
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <div>
+                <h1>Добро пожаловать!</h1>
+                <p>Все ваши финансы — в одном месте.</p>
+            </div>
+
+            <div class="header-actions">
+                <button class="period-button">
+                    Ноябрь 2026
+                    <span>⌄</span>
+                </button>
+
+                <button class="notification-button">
+                    ♧
+                </button>
+            </div>
+        </header>
+
+        <!-- QUICK EXPENSE FORM -->
+
+        <section class="quick-expense">
+            <div class="section-header">
+                <div>
+                    <h2>Добавить расход</h2>
+                    <p>Запишите свою ежедневную трату</p>
+                </div>
+            </div>
+
+            <form id="expense-form" class="expense-form">
+
+                <div class="form-field">
+                    <label for="expense-amount">Сумма, сом</label>
+                    <input
+                            type="number"
+                            id="expense-amount"
+                            name="amount"
+                            placeholder="Например, 1200"
+                            min="0.01"
+                            step="0.01"
+                            required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="expense-category">Категория</label>
+                    <select id="expense-category" name="category" required>
+                        <option value="">Выберите категорию</option>
+                        <option value="Продукты">Продукты</option>
+                        <option value="Кофе и рестораны">Кофе и рестораны</option>
+                        <option value="Транспорт">Транспорт</option>
+                        <option value="Покупки">Покупки</option>
+                        <option value="Красота и уход">Красота и уход</option>
+                        <option value="Другое">Другое</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="expense-account">Счёт списания</label>
+                    <select id="expense-account" name="account" required>
+                        <option value="">Выберите счёт</option>
+                        <option value="optima">Optima Bank</option>
+                        <option value="simba-credit">Simba — кредитный лимит</option>
+                        <option value="simba-personal">Simba — личные средства</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="expense-date">Дата операции</label>
+                    <input
+                            type="date"
+                            id="expense-date"
+                            name="date"
+                            required
+                    >
+                </div>
+
+                <button type="submit" class="submit-expense">
+                    + Добавить расход
+                </button>
+
+            </form>
+        </section>
+
+        <!-- ACCOUNTS -->
+
+        <section class="accounts-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Мои счета</h2>
+                    <p>Все ваши банковские счета</p>
+                </div>
+
+                <button class="add-account-button">
+                    + Добавить счёт
+                </button>
+            </div>
+
+            <div class="accounts-grid">
+
+                <article class="account-card">
+                    <div class="account-top">
+                        <span class="account-bank">OPTIMA BANK</span>
+                        <span class="account-icon">₸</span>
+                    </div>
+
+                    <p class="account-type">Основной счёт</p>
+                    <h3 id="optima-balance"></h3>
+                    <span class="account-number">•••• 4582</span>
+                </article>
+
+                <article class="account-card credit">
+                    <div class="account-top">
+                        <span class="account-bank">SIMBA</span>
+                        <span class="account-icon">↗</span>
+                    </div>
+
+                    <p class="account-type">Кредитный лимит</p>
+                    <h3 id="simba-credit-balance"></h3>
+                    <span class="account-number">Доступно</span>
+                </article>
+
+                <article class="account-card personal">
+                    <div class="account-top">
+                        <span class="account-bank">SIMBA</span>
+                        <span class="account-icon">◈</span>
+                    </div>
+
+                    <p class="account-type">Личные средства</p>
+                    <h3 id="simba-personal-balance"></h3>
+                    <span class="account-number">Личный счёт</span>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="summary-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Финансовая сводка</h2>
+                    <p>Ваши доходы, расходы и накопления</p>
+                </div>
+            </div>
+
+            <div class="summary-grid">
+
+                <!-- Общий баланс -->
+                <article class="summary-card balance-card">
+                    <p>Общий баланс</p>
+                    <h2 id="total-balance"></h2>
+                    <span>Все ваши средства</span>
+                </article>
+
+                <!-- Доходы -->
+                <article class="summary-card income-card">
+                    <p>Доходы</p>
+                    <h2>51 065 сом</h2>
+                    <span>За ноябрь</span>
+                </article>
+
+                <!-- Расходы -->
+                <article class="summary-card expenses-card">
+                    <p>Расходы</p>
+                    <h2>24 850 сом</h2>
+                    <span>За ноябрь</span>
+                </article>
+
+                <!-- Накопления -->
+                <article class="summary-card savings-card">
+                    <p>Накопления</p>
+                    <h2>217 545 сом</h2>
+                    <span>Всего накоплено</span>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- RECENT TRANSACTIONS -->
+
+        <section class="transactions-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Последние операции</h2>
+                    <p>История ваших доходов и расходов</p>
+                </div>
+
+                <button class="add-account-button">
+                    Все операции →
+                </button>
+            </div>
+
+            <div class="transactions-list" id="transactions-list">
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
