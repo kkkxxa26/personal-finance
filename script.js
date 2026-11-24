@@ -5,7 +5,7 @@ console.log("Personal Finance запущен!");
 // ACCOUNTS
 // =========================
 
-const accounts = {
+let accounts = JSON.parse(localStorage.getItem("accounts")) || {
     optima: 80000,
     simbaCredit: 6000,
     simbaPersonal: 40000
@@ -54,7 +54,6 @@ function updateBalances() {
 
     const totalBalance =
         accounts.optima +
-        accounts.simbaCredit +
         accounts.simbaPersonal;
 
     totalBalanceElement.textContent =
@@ -64,7 +63,17 @@ function updateBalances() {
 // Сразу отображаем начальные балансы
 updateBalances();
 
-const transactions = [];
+let transactions = JSON.parse(
+    localStorage.getItem("transactions")
+) || [];
+
+// =========================
+// SAVE ACCOUNTS
+// =========================
+
+function saveAccounts() {
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+}
 
 // =========================
 // RENDER TRANSACTIONS
@@ -87,7 +96,7 @@ function renderTransactions() {
 
                     <div>
                         <h3>${transaction.title}</h3>
-                        <p>${transaction.category} · ${transaction.date}</p>
+                        <p>${transaction.category} · ${transaction.date} · ${transaction.time || ""}</p>
                     </div>
                 </div>
 
@@ -169,6 +178,20 @@ expenseForm.addEventListener("submit", function(event) {
     // Обновляем карточки
     updateBalances();
 
+    // Сохраняем новые балансы
+    saveAccounts();
+
+    // =========================
+    // SAVE TRANSACTIONS
+    // =========================
+
+    function saveTransactions() {
+        localStorage.setItem(
+            "transactions",
+            JSON.stringify(transactions)
+        );
+    }
+
     // Определяем название счёта
     const accountNames = {
         optima: "Optima",
@@ -186,7 +209,7 @@ expenseForm.addEventListener("submit", function(event) {
         "Другое": "📦"
     };
 
-    // Форматируем дату
+    // Получаем дату и время операции
     const transactionDate = new Date(date + "T00:00:00");
 
     const formattedTransactionDate = transactionDate.toLocaleDateString(
@@ -194,6 +217,14 @@ expenseForm.addEventListener("submit", function(event) {
         {
             day: "numeric",
             month: "long"
+        }
+    );
+
+    const formattedTransactionTime = new Date().toLocaleTimeString(
+        "ru-RU",
+        {
+            hour: "2-digit",
+            minute: "2-digit"
         }
     );
 
@@ -205,12 +236,19 @@ expenseForm.addEventListener("submit", function(event) {
         amount: -amount,
         account: accountNames[selectedAccount],
         date: formattedTransactionDate,
+        time: formattedTransactionTime,
         icon: categoryIcons[category],
         type: "expense"
     };
 
     // Добавляем операцию в начало массива
     transactions.unshift(newTransaction);
+
+    // Сохраняем историю
+    saveTransactions();
+
+    // Обновляем историю на странице
+    renderTransactions();
 
     // Обновляем историю на странице
     renderTransactions();
