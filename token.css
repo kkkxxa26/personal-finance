@@ -1,40 +1,71 @@
+/* =========================================================
+   PERSONAL FINANCE — DESIGN TOKENS
+   ========================================================= */
 
 /* =========================
    FONT
 ========================= */
 
 @font-face {
-    font-family: 'Optima Geologica';
-    src: url('./fonts/OptimaGeologica.woff2') format('woff2');
-    font-weight: 100 900;
+    font-family: "Optima Geologica";
+    src: url("./fonts/OptimaGeologica.woff2") format("woff2");
     font-style: normal;
+    font-weight: 100 900;
     font-display: swap;
 }
-
 
 /* =========================
    DESIGN TOKENS
 ========================= */
 
 :root {
-
-    /* COLORS */
+    /* COLORS — surfaces */
 
     --color-background: #F7F2E8;
     --color-surface: #FFFCF5;
     --color-sidebar: #181817;
+    --color-sidebar-active: #3B3933;
+
+    /* COLORS — text */
 
     --color-text-primary: #202020;
     --color-text-secondary: #77736D;
     --color-text-muted: #AAA79E;
     --color-text-inverse: #FFFFFF;
 
+    /* COLORS — brand and interaction */
+
+    --color-accent: #D1C0E1;
+    --color-primary: var(--color-accent);
+    --color-primary-hover: #BFAAD5;
+    --color-focus-ring: #8D6BB0;
+
+    /* COLORS — financial categories */
+
     --color-income: #AABD88;
     --color-expenses: #F0B5D0;
     --color-savings: #B4CAE9;
     --color-balance: #F2D96F;
-    --color-accent: #D1C0E1;
 
+    --color-expense-amount: #C46E78;
+    --color-income-amount: #6F9561;
+
+    /* COLORS — transaction icon backgrounds */
+
+    --color-transaction-food: #F5E7C7;
+    --color-transaction-salary: #DDE8CE;
+    --color-transaction-taxi: #E1E8F2;
+
+    /* COLORS — borders */
+
+    --color-border: #292824;
+    --color-border-subtle: #E7E1D6;
+    --color-border-soft: #EAE4D9;
+
+    /* COLORS — controls */
+
+    --color-control-background: var(--color-background);
+    --color-control-hover: #F0EBE1;
 
     /* SPACING */
 
@@ -48,7 +79,6 @@
     --space-8: 32px;
     --space-9: 40px;
 
-
     /* RADIUS */
 
     --radius-sm: 9px;
@@ -57,10 +87,9 @@
     --radius-xl: 24px;
     --radius-full: 999px;
 
-
     /* TYPOGRAPHY */
 
-    --font-family-base: 'Optima Geologica', sans-serif;
+    --font-family-base: "Optima Geologica", sans-serif;
 
     --font-size-xs: 10px;
     --font-size-sm: 12px;
@@ -73,4 +102,32 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+
+    /* BORDERS */
+
+    --border-color: var(--color-border);
+    --border-color-subtle: var(--color-border-subtle);
+    --border-width: 1px;
+
+    /* SHADOWS */
+
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.04);
+    --shadow-navigation: 0 -4px 18px rgba(0, 0, 0, 0.07);
+    --shadow-popover: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   GLOBAL BASE
+========================= */
+
+html {
+    font-family: var(--font-family-base), sans-serif;}
+
+body {
+    font-family: var(--font-family-base), sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
 }
